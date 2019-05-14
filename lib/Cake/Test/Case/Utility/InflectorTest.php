@@ -398,6 +398,22 @@ class InflectorTest extends CakeTestCase {
 
 		$result = Inflector::slug("non\xc2\xa0breaking\xc2\xa0space");
 		$this->assertEquals('non_breaking_space', $result);
+
+		$result = Inflector::slug('a');
+		$expected = 'a';
+		$this->assertEquals($expected, $result);
+
+		$result = Inflector::slug('b');
+		$expected = 'b';
+		$this->assertEquals($expected, $result);
+
+		$result = Inflector::slug('f');
+		$expected = 'f';
+		$this->assertEquals($expected, $result);
+
+		$result = Inflector::slug('m');
+		$expected = 'm';
+		$this->assertEquals($expected, $result);
 	}
 
 /**

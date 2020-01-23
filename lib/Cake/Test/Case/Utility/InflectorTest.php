@@ -402,6 +402,10 @@ class InflectorTest extends CakeTestCase {
 		$result = Inflector::slug('a');
 		$expected = 'a';
 		$this->assertEquals($expected, $result);
+
+		$result = Inflector::slug('b');
+		$expected = 'a';
+		$this->assertEquals($expected, $result);
 	}
 
 /**

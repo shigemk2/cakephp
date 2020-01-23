@@ -132,7 +132,7 @@ before_script:
     }" > app/Config/database.php
 
 script:
-  - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllUtility --stderr; fi"
+  - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core --filter='Slug' Utility/InflectorTest.php --stderr; fi"
 
 notifications:
   email: false

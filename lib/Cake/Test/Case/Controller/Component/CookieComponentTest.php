@@ -866,7 +866,7 @@ class CookieComponentTest extends CakeTestCase {
 	public function testWriteSameSiteLax() {
 		$this->Cookie->httpOnly = true;
 		$this->Cookie->secure = false;
-		$this->Cookie->write('Testing', 'value', false);
+		$this->Cookie->write('Testing', 'value', false, '+90 years', '/; SameSite=Lax');
 		$expected = array(
 			'name' => $this->Cookie->name . '[Testing]',
 			'value' => 'value',

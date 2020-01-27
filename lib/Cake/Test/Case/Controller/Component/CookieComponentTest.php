@@ -859,6 +859,28 @@ class CookieComponentTest extends CakeTestCase {
 	}
 
 /**
+ * test write with httpOnly cookies
+ *
+ * @return void
+ */
+	public function testWriteSameSiteLax() {
+		$this->Cookie->httpOnly = true;
+		$this->Cookie->secure = false;
+		$this->Cookie->write('Testing', 'value', false);
+		$expected = array(
+			'name' => $this->Cookie->name . '[Testing]',
+			'value' => 'value',
+			'expire' => time() + 10,
+			'path' => '/; SameSite=Lax',
+			'domain' => '',
+			'secure' => false,
+			'httpOnly' => true);
+		$result = $this->Controller->response->cookie($this->Cookie->name . '[Testing]');
+		$this->assertEquals($expected, $result);
+	}
+
+
+/**
  * Test destroy works.
  *
  * @return void
